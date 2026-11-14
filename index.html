@@ -606,7 +606,7 @@ const CONFIG = {
 };
 
 /* ================= NAMA TAMU (?to=) ================= */
-(function(){
+function applyGuestName(){
   const q = new URLSearchParams(location.search);
   const to = (q.get('to') || '').trim();
   if (to) {
@@ -614,7 +614,9 @@ const CONFIG = {
     const f = document.getElementById('fNama');
     if (f && !f.value) f.value = to;
   }
-})();
+}
+applyGuestName();
+window.addEventListener('pageshow', applyGuestName);
 
 /* ================= BUKA UNDANGAN + MUSIK ================= */
 const musicBtn = document.getElementById('musicBtn');
